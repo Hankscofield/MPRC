@@ -1,4 +1,3 @@
-
 let mouseX = 0;
 let mouseY = 0;
 let scrollY = 0;
@@ -91,13 +90,13 @@ function initPlantAnimation() {
     currentRotation += (targetRotation - currentRotation) * 0.1;
 
     const scale = 1 + plantGrowth * 0.1;
-    plantSvg.style.transform = rotate(${currentRotation}deg) scale(${scale});
+    plantSvg.style.transform = `rotate(${currentRotation}deg) scale(${scale})`;
 
     const leaves = plantSvg.querySelectorAll('.leaf');
     leaves.forEach((leaf, index) => {
       const leafRotation = Math.sin(Date.now() * 0.001 + index) * 5;
       const leafScale = 1 + Math.sin(Date.now() * 0.002 + index) * 0.05;
-      leaf.style.transform = rotate(${leafRotation}deg) scale(${leafScale});
+      leaf.style.transform = `rotate(${leafRotation}deg) scale(${leafScale})`;
     });
 
     animationFrame = requestAnimationFrame(animatePlant);
@@ -159,7 +158,7 @@ function updateGradientOrbs() {
     const offsetX = (mouseX - window.innerWidth / 2) * speed;
     const offsetY = (mouseY - window.innerHeight / 2) * speed;
 
-    orb.style.transform = translate(${offsetX}px, ${offsetY}px);
+    orb.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
   });
 }
 
