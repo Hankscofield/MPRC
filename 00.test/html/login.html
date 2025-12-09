@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Login - Park Reports</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/GS.css">
+</head>
+<body>
+
+  <div class="blob"></div>
+
+  <div class="card">
+    <h1>Login</h1>
+    <p>Get Back To Reporting</p>
+
+    <div id="loginError" class="error-message" style="display: none;"></div>
+
+    <label for="loginEmail">Email</label>
+    <input type="email" id="loginEmail" placeholder="example@mail.com" />
+
+    <label for="loginPassword">Password</label>
+    <input type="password" id="loginPassword" placeholder="••••••••" />
+
+    <button class="btn" id="loginBtn">Sign In</button>
+
+    <a href="signup.html" class="link">Create an account</a>
+  </div>
+
+  <script src="../js/auth.js"></script>
+</body>
+</html>
