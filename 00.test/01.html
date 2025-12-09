@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SVG Plant Example</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #f0f8f0;
+      font-family: sans-serif;
+    }
+    svg {
+      width: 200px;
+      height: 400px;
+    }
+    .leaf {
+      transform-origin: 200px 300px; /* pivot point for rotation */
+      opacity: 0;
+      transition: transform 1s, opacity 1s;
+    }
+    .leaf.show {
+      opacity: 1;
+      transform: rotate(15deg);
+    }
+  </style>
+</head>
+<body>
+
+  <svg viewBox="0 0 400 500">
+    <!-- Stem -->
+    <g id="stem">
+      <path d="M200 500 Q200 400 200 300 Q200 200 200 100" 
+            stroke="green" stroke-width="8" fill="none" stroke-linecap="round"/>
+    </g>
+
+    <!-- Leaves -->
+    <g id="leaf1" class="leaf">
+      <path d="M200 300 Q150 280 120 260 Q100 240 110 220 Q120 200 150 210 Q180 220 200 300" 
+            fill="lightgreen"/>
+    </g>
+
+    <g id="leaf2" class="leaf">
+      <path d="M200 250 Q250 230 280 210 Q300 190 290 170 Q280 150 250 160 Q220 170 200 250" 
+            fill="lightgreen"/>
+    </g>
+  </svg>
+
+  <script>
+    // Animate leaves after page loads
+    window.onload = () => {
+      document.getElementById('leaf1').classList.add('show');
+      document.getElementById('leaf2').classList.add('show');
+    };
+  </script>
+
+</body>
+</html>

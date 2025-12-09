@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 .ambient-layer {
   position: fixed;
   top: 0;
@@ -281,7 +285,7 @@
 .title-line {
   display: block;
   position: relative;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .title-line::before {
@@ -291,7 +295,7 @@
   left: 0;
   width: 0;
   color: var(--color-emerald);
-  overflow: hidden;
+  /* overflow: hidden; */
   animation: revealText 1.5s ease-out forwards;
   animation-delay: 0.3s;
 }
@@ -661,8 +665,8 @@
 .section-tag {
   display: inline-block;
   padding: var(--spacing-xs) var(--spacing-md);
-  background: var(--color-light-jade);
-  color: var(--color-emerald);
+  background: var(--color-emerald); 
+  color: var(--color-cream);        
   border-radius: var(--radius-sm);
   font-size: 0.875rem;
   font-weight: 600;
@@ -760,7 +764,10 @@
   overflow: hidden;
 }
 
+
 .section-header {
+  position: relative;
+  z-index: 5;
   text-align: center;
   margin-bottom: var(--spacing-xl);
 }
@@ -938,3 +945,88 @@
   color: var(--color-sage);
 }
 
+@media (max-width: 1024px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+    text-align: center;
+  }
+
+  .hero-visual {
+    order: -1;
+  }
+
+  .plant-container {
+    width: 300px;
+    height: 400px;
+  }
+
+  .glass-card.floating {
+    position: static;
+    margin-top: var(--spacing-lg);
+  }
+
+  .section-content {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  .mission-visual {
+    order: -1;
+  }
+
+  .steps-container {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    gap: var(--spacing-sm);
+  }
+
+  .nav-link {
+    font-size: 0.875rem;
+  }
+
+  .nav-button {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: 0.875rem;
+  }
+
+  .hero {
+    padding: var(--spacing-lg) var(--spacing-sm);
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+}

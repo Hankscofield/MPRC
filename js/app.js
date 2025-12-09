@@ -283,6 +283,10 @@ function openReportModal(reportId) {
   modal.show()
 }
 
+document.getElementById("reportModal").addEventListener("hidden.bs.modal", () => {
+  document.querySelectorAll(".modal-backdrop").forEach(b => b.remove());
+});
+
 // Add Comment
 function addComment(reportId) {
   const commentInput = document.getElementById("newComment")
