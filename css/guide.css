@@ -1,0 +1,79 @@
+/* =============== HERO SECTION =============== */
+.guide-hero {
+  padding: var(--spacing-xl) var(--spacing-md);
+  text-align: center;
+  background: var(--color-soft-mint);
+  margin-top: 90px; /* pushes below navbar */
+}
+
+.guide-hero h1 {
+  font-size: 2.8rem;
+  color: var(--color-deep-forest);
+}
+
+.guide-hero p {
+  max-width: 700px;
+  margin: 1rem auto 0;
+  color: var(--color-moss);
+  font-size: 1.1rem;
+}
+
+
+/* =============== GUIDE SECTION CARDS =============== */
+.guide-sections {
+  padding: var(--spacing-xl) var(--spacing-md);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--spacing-lg);
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.guide-card {
+  background: var(--color-mist);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+  text-align: center;
+  transition: var(--transition-smooth);
+}
+
+.guide-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+}
+
+.icon-circle {
+  width: 70px;
+  height: 70px;
+  background: var(--color-light-jade);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--spacing-sm);
+  font-size: 2rem;
+}
+
+.guide-card h3 {
+  margin-bottom: var(--spacing-xs);
+  color: var(--color-emerald);
+}
+
+.guide-card p {
+  color: var(--color-sage);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+
+/* =============== MOBILE RESPONSIVE =============== */
+@media (max-width: 650px) {
+  .guide-hero h1 {
+    font-size: 2rem;
+  }
+  
+  .guide-sections {
+    grid-template-columns: 1fr;
+  }
+}

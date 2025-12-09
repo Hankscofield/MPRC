@@ -1,4 +1,5 @@
-/* Footer */
+@import 'ConstantVariables.css';
+
 .footer {
   background: var(--color-deep-forest);
   color: var(--color-cream);
@@ -18,6 +19,7 @@
   display: flex;
   align-items: center;
   gap: var(--spacing-xs);
+  font-family: var(--font-display);
   font-weight: 600;
   font-size: 1.25rem;
   margin-bottom: var(--spacing-md);
@@ -40,34 +42,33 @@
 
 .footer-links {
   list-style: none;
-  padding: 0;
-  margin: 0;
 }
 
-.footer-links li a {
+.footer-links li {
+  margin-bottom: var(--spacing-sm);
+}
+
+.footer-links a {
   color: var(--color-sage);
   text-decoration: none;
-  display: block;
-  padding: 0.25rem 0;
-  transition: color 0.3s;
+  transition: var(--transition-smooth);
 }
 
-.footer-links li a:hover {
-  color: var(--color-cream);
+.footer-links a:hover {
+  color: var(--color-soft-mint);
+  padding-left: var(--spacing-xs);
+}
+
+.footer-text {
+  color: var(--color-sage);
+  line-height: 1.8;
 }
 
 .footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding-top: var(--spacing-md);
+  max-width: 1400px;
+  margin: 0 auto;
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid rgba(226, 251, 206, 0.2);
   text-align: center;
-  font-size: 0.875rem;
   color: var(--color-sage);
 }
-
-@media (max-width: 650px) { /* Changed 768px to 650px for consistency with about.css (or 950px if targeting the two-column layout) */
-  .footer-content {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-lg);
-  }
-}
-/* ADDED MISSING CLOSING BRACE BELOW */

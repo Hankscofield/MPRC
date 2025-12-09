@@ -151,7 +151,6 @@ function createLeaf(x, y) {
     leaf.remove();
   }, 15000);
 }
-
 function updateGradientOrbs() {
   const orbs = document.querySelectorAll('.gradient-orb');
   orbs.forEach((orb, index) => {
@@ -377,5 +376,3 @@ window.addEventListener('resize', () => {
   mouseX = window.innerWidth / 2;
   mouseY = window.innerHeight / 2;
 });
-
-
