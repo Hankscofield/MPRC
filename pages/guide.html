@@ -3,55 +3,150 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Guide - ReGrow Community Hub</title>
-  <link rel="stylesheet" href="ConstantVariables.css">
-  <style>
-    body {
-      padding: 80px 2rem 2rem;
-      max-width: 800px;
-      margin: 0 auto;
-    }
+  <title>Guide | MPRC</title>
 
-    h1 {
-      color: var(--color-emerald);
-      margin-bottom: 2rem;
-    }
-
-    .back-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      color: var(--color-emerald);
-      text-decoration: none;
-      margin-bottom: 2rem;
-      font-weight: 600;
-      transition: var(--transition-smooth);
-    }
-
-    .back-link:hover {
-      gap: 1rem;
-    }
-
-    .content {
-      line-height: 1.8;
-      color: var(--color-moss);
-    }
-  </style>
+  <link rel="stylesheet" href="../css/ConstantVariables.css">
+  <link rel="stylesheet" href="../css/navbar.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/guide.css">
 </head>
+
 <body>
-  <a href="/index.html" class="back-link">
-    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-      <path d="M16 10H4M4 10L9 5M4 10L9 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-    Back to Home
-  </a>
 
-  <h1>Participation Guide</h1>
+  <!-- Navbar -->
+  <nav class="nav-glass" id="navbar">
+    <div class="nav-content">
+      <div class="logo">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <path d="M16 4C16 4 12 8 12 14C12 17.3137 14.6863 20 18 20C21.3137 20 24 17.3137 24 14C24 8 20 4 20 4"
+           stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M16 14V28M16 28L12 24M16 28L20 24"
+           stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>MPRC</span>
+      </div>
 
-  <div class="content">
-    <p>Welcome to the ReGrow Community Hub participation guide. This page will help you understand how to effectively contribute to park revitalization efforts in your community.</p>
+      <div class="nav-links">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="app.html" class="nav-link">Reports</a>
+        <a href="guide.html" class="nav-link active">Guide</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="app.html" class="nav-button">Get Started</a>
+      </div>
+    </div>
+  </nav>
 
-    <p>Content coming soon...</p>
-  </div>
+
+  <!-- ===================== GUIDE HERO ===================== -->
+  <section class="guide-hero">
+    <div class="hero-content">
+      <h1>Your Guide to Using MPRC</h1>
+      <p>Learn what each page does and how you can help improve public green spaces in Myanmar.</p>
+    </div>
+  </section>
+
+
+  <!-- ===================== GUIDE SECTIONS ===================== -->
+  <section class="guide-sections">
+
+    <!-- CARD 1 -->
+    <div class="guide-card">
+      <div class="icon-circle">
+        <span>📍</span>
+      </div>
+      <h3>Home Page</h3>
+      <p>
+        The Home page gives you a quick overview of who we are and what MPRC does.
+        It helps new users understand our mission and how they can join the movement.
+      </p>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="guide-card">
+      <div class="icon-circle">
+        <span>📝</span>
+      </div>
+      <h3>Reports Page</h3>
+      <p>
+        Share your park experience, report issues, upload photos, or suggest improvements.
+        This page is the heart of the community-driven reporting system.
+      </p>
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="guide-card">
+      <div class="icon-circle">
+        <span>📘</span>
+      </div>
+      <h3>Guide Page</h3>
+      <p>
+        This page explains how to use the website, how reports work, and what features
+        help improve parks across Myanmar.
+      </p>
+    </div>
+
+    <!-- CARD 4 -->
+    <div class="guide-card">
+      <div class="icon-circle">
+        <span>👥</span>
+      </div>
+      <h3>About Page</h3>
+      <p>
+        Learn about the team, our mission, and why park revitalization matters.
+        It helps users understand the purpose behind MPRC.
+      </p>
+    </div>
+
+    <!-- CARD 5 -->
+    <div class="guide-card">
+      <div class="icon-circle">
+        <span>🚀</span>
+      </div>
+      <h3>Get Started</h3>
+      <p>
+        New users can begin reporting issues, sharing stories, or joining the community.
+        This section guides users to the main features of the platform.
+      </p>
+    </div>
+
+  </section>
+
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <div class="footer-logo">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <path d="M16 4C16 4 12 8 12 14C12 17.3137 14.6863 20 18 20C21.3137 20 24 17.3137 24 14C24 8 20 4 20 4" stroke="currentColor" stroke-width="2"/>
+            <path d="M16 14V28M16 28L12 24M16 28L20 24" stroke="currentColor" stroke-width="2"/>
+          </svg>
+          <span>MYANMAR PARK REPORT CENTER ( MPRC )</span>
+        </div>
+        <p class="footer-description">
+          Empowering communities to revitalize their public green spaces through collaboration and action.
+        </p>
+      </div>
+
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="guide.html">Guide</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Connect</h4>
+        <p class="footer-text">Join our growing community and stay updated on local revitalization efforts.</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 MPRC. Growing together.</p>
+    </div>
+  </footer>
+
 </body>
 </html>
