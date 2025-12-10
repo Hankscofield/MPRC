@@ -19,16 +19,19 @@
     <h1>Login</h1>
     <p>Get Back To Reporting</p>
 
-    <label>Email</label>
-    <input type="email" placeholder="example@mail.com" />
+    <div id="loginError" class="error-message" style="display: none;"></div>
 
-    <label>Password</label>
-    <input type="password" placeholder="••••••••" />
+    <label for="loginEmail">Email</label>
+    <input type="email" id="loginEmail" placeholder="example@mail.com" />
 
-    <button class="btn">Sign In</button>
+    <label for="loginPassword">Password</label>
+    <input type="password" id="loginPassword" placeholder="••••••••" />
+
+    <button class="btn" id="loginBtn">Sign In</button>
 
     <a href="signup.html" class="link">Create an account</a>
   </div>
 
+  <script src="../js/auth.js"></script>
 </body>
 </html>

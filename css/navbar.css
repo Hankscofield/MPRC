@@ -1,4 +1,4 @@
-/* REQUIRED VARIABLES (Inferred from original context to make the styles work) */
+/* REQUIRED VARIABLES (from original context to make the styles work) */
     :root {
       --color-glass-overlay: rgba(255, 255, 255, 0.7);
       --color-glass-border: rgba(255, 255, 255, 0.5);

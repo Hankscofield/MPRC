@@ -3,7 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Sign Up</title>
+  <title>Sign Up - Park Reports</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="../css/GS.css">
 </head>
 <body>
@@ -13,6 +18,9 @@
   <div class="card">
     <h1>Sign Up</h1>
     <p>Sign Up To Start Reporting</p>
+
+    <div id="signupError" class="error-message" style="display: none;"></div>
+    <div id="signupSuccess" class="success-message" style="display: none;"></div>
 
     <label for="username">Display Username</label>
     <input type="text" class="input-text" id="username" placeholder="Username" />
@@ -27,7 +35,7 @@
       <label>Account Type</label>
 
       <div>
-        <input type="radio" name="account" id="user" value="user">
+        <input type="radio" name="account" id="user" value="user" checked>
         <label for="user">User</label>
       </div>
 
@@ -37,10 +45,11 @@
       </div>
     </div>
 
-    <button class="btn">Sign Up</button>
+    <button class="btn" id="signupBtn">Sign Up</button>
 
     <a href="login.html" class="link">Already Have An Account? Login</a>
   </div>
 
+  <script src="../js/auth.js"></script>
 </body>
 </html>

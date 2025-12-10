@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Park Reports - Community Park Reporting System</title>
+  <meta name="description" content="Report and track park issues in your community. Help make our parks better for everyone.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/landing.css">
+</head>
+<body>
+  <div class="ambient-layer" id="ambientLayer"></div>
+
+  <nav class="nav-glass" id="navbar">
+    <div class="nav-content">
+      <a href="index.html" class="logo">
+        <i class="bi bi-tree-fill"></i>
+        <span>Park Reports</span>
+      </a>
+      
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+        <i class="bi bi-list"></i>
+      </button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="pages/login.html" class="nav-link">Login</a>
+        <a href="pages/signup.html" class="nav-button">Get Started</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-background">
+      <div class="gradient-orb orb-1"></div>
+      <div class="gradient-orb orb-2"></div>
+      <div class="gradient-orb orb-3"></div>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1 class="hero-title">
+          Make Your <span class="highlight">Parks</span> Better
+        </h1>
+        <p class="hero-subtitle">
+          Report issues, suggest improvements, and help maintain the green spaces in your community. 
+          Together, we can create cleaner, safer, and more enjoyable parks for everyone.
+        </p>
+        <div class="hero-actions">
+          <a href="pages/signup.html" class="btn-primary">
+            <span>Start Reporting</span>
+            <i class="bi bi-arrow-right"></i>
+          </a>
+          <a href="#features" class="btn-secondary">Learn More</a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <img src="https://images.unsplash.com/photo-1588714477688-cf28a50e94f7?w=600&h=400&fit=crop" alt="Beautiful park" class="hero-image">
+        <div class="hero-card">
+          <div class="stat-item">
+            <div class="stat-number">500+</div>
+            <div class="stat-label">Reports Submitted</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="features" id="features">
+    <div class="features-container">
+      <h2 class="section-title">How It Works</h2>
+      
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="bi bi-camera"></i>
+          </div>
+          <h3>Report Issues</h3>
+          <p>Snap a photo and submit reports about maintenance issues, safety concerns, or damage you find in local parks.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="bi bi-geo-alt"></i>
+          </div>
+          <h3>Location Mapping</h3>
+          <p>Add Google Maps links to pinpoint exact locations, making it easy for authorities to find and address issues.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="bi bi-check-circle"></i>
+          </div>
+          <h3>Track Progress</h3>
+          <p>Follow up on submitted reports and see when issues are resolved. Stay informed about your community.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="bi bi-people"></i>
+          </div>
+          <h3>Community Driven</h3>
+          <p>Join fellow community members in keeping parks clean and safe. Comment on reports and share updates.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="bi bi-shield-check"></i>
+          </div>
+          <h3>Government Integration</h3>
+          <p>Local authorities can access reports directly, ensuring quick response times and effective communication.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="bi bi-phone"></i>
+          </div>
+          <h3>Mobile Friendly</h3>
+          <p>Access the platform from any device. Report issues on-the-go right from your smartphone.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="about">
+    <div class="cta-content">
+      <h2>Ready to Make a Difference?</h2>
+      <p>Join thousands of community members who are actively improving their local parks.</p>
+      <a href="pages/signup.html" class="btn-cta">
+        <span>Create Free Account</span>
+        <i class="bi bi-arrow-right"></i>
+      </a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2024 Park Reports. Making communities greener, one report at a time.</p>
+  </footer>
+
+  <script src="js/landing.js"></script>
+</body>
+</html>
