@@ -78,41 +78,31 @@ function isLoggedIn() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-  const loginBtn = document.getElementById('loginBtn');
-  const signupBtn = document.getElementById('signupBtn');
+  const loginForm = document.getElementById('loginForm');
+  const signupForm = document.getElementById('signupForm');
   
-  if (loginBtn) {
+  if (loginForm) {
     if (isLoggedIn()) {
       window.location.href = 'dashboard.html';
       return;
     }
     
-    loginBtn.addEventListener('click', handleLogin);
-    
-    document.getElementById('loginPassword').addEventListener('keypress', function(e) {
-      if (e.key === 'Enter') {
-        handleLogin();
-      }
-    });
+    loginForm.addEventListener('submit', handleLogin);
   }
   
-  if (signupBtn) {
+  if (signupForm) {
     if (isLoggedIn()) {
       window.location.href = 'dashboard.html';
       return;
     }
     
-    signupBtn.addEventListener('click', handleSignup);
-    
-    document.getElementById('password').addEventListener('keypress', function(e) {
-      if (e.key === 'Enter') {
-        handleSignup();
-      }
-    });
+    signupForm.addEventListener('submit', handleSignup);
   }
 });
 
-function handleLogin() {
+function handleLogin(e) {
+  e.preventDefault();
+  
   const email = document.getElementById('loginEmail').value.trim();
   const password = document.getElementById('loginPassword').value;
   const errorDiv = document.getElementById('loginError');
@@ -135,11 +125,13 @@ function handleLogin() {
   }
 }
 
-function handleSignup() {
+function handleSignup(e) {
+  e.preventDefault();
+  
   const username = document.getElementById('username').value.trim();
   const email = document.getElementById('email').value.trim();
   const password = document.getElementById('password').value;
-  const accountType = document.querySelector('input[name="account"]:checked')?.value || 'user';
+  const accountType = document.querySelector('input[name="accountType"]:checked')?.value || 'user';
   const errorDiv = document.getElementById('signupError');
   const successDiv = document.getElementById('signupSuccess');
   
@@ -153,7 +145,7 @@ function handleSignup() {
   }
   
   if (username.length < 2) {
-    errorDiv.textContent = 'Username must be at least 2 characters.';
+    errorDiv.textContent = 'Name must be at least 2 characters.';
     errorDiv.style.display = 'block';
     return;
   }
@@ -176,9 +168,7 @@ function handleSignup() {
     successDiv.textContent = result.message + ' Redirecting to login...';
     successDiv.style.display = 'block';
     
-    document.getElementById('username').value = '';
-    document.getElementById('email').value = '';
-    document.getElementById('password').value = '';
+    document.getElementById('signupForm').reset();
     
     setTimeout(() => {
       window.location.href = 'login.html';

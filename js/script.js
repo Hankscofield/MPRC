@@ -134,7 +134,11 @@ function initLeafAnimation() {
   }, 2000);
 }
 
+const MAX_LEAVES = 30;
+
 function createLeaf(x, y) {
+  if (leafContainer.childElementCount >= MAX_LEAVES) return;
+
   const leafContainer = document.getElementById('leafContainer');
   if (!leafContainer) return;
 

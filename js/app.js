@@ -16,9 +16,9 @@ const sampleReports = [
     id: 1,
     title: "Broken Playground Equipment",
     park: "Central Park",
-    message: "The swing set on the north side has several broken links in the chains. This poses a safety risk to children.",
-    image: "https://images.unsplash.com/photo-1596997000103-e597b3ca50df?w=400",
-    link: "https://example.com/report/1",
+    message: "The swing set on the north side has several broken links in the chains. This poses a safety risk to children using the playground area.",
+    image: "https://images.unsplash.com/photo-1596997000103-e597b3ca50df?w=600",
+    mapLink: "https://maps.google.com/?q=40.785091,-73.968285",
     category: "maintenance",
     status: "active",
     author: "Jane Smith",
@@ -41,9 +41,9 @@ const sampleReports = [
     id: 2,
     title: "Damaged Basketball Court",
     park: "Riverside Park",
-    message: "Multiple cracks on the basketball court surface make it unplayable. Please schedule repairs.",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400",
-    link: "https://example.com/report/2",
+    message: "Multiple cracks on the basketball court surface make it unplayable. Please schedule repairs as soon as possible.",
+    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600",
+    mapLink: "https://maps.google.com/?q=40.801979,-73.971893",
     category: "maintenance",
     status: "resolved",
     author: "Mike Johnson",
@@ -61,9 +61,9 @@ const sampleReports = [
     id: 3,
     title: "Suggested: Dog Park Expansion",
     park: "Meadowbrook Park",
-    message: "With increased pet ownership in the area, expanding the dog park would be beneficial for the community.",
-    image: "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400",
-    link: "https://example.com/report/3",
+    message: "With increased pet ownership in the area, expanding the dog park would be beneficial for the community and their pets.",
+    image: "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=600",
+    mapLink: "https://maps.google.com/?q=40.758896,-73.985130",
     category: "improvement",
     status: "active",
     author: "Sarah Wilson",
@@ -88,10 +88,8 @@ function saveAllReports(reports) {
 
 let allReports = [];
 let currentPage = "reports";
-let sidebarCollapsed = false;
+let sidebarOpen = false;
 let currentUser = null;
-
-const bootstrap = window.bootstrap;
 
 document.addEventListener("DOMContentLoaded", () => {
   currentUser = getCurrentUser();
@@ -108,16 +106,18 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function setupEventListeners() {
-  document.querySelectorAll(".nav-link").forEach((link) => {
+  document.querySelectorAll(".sidebar-nav .nav-link").forEach((link) => {
     link.addEventListener("click", (e) => {
       e.preventDefault();
       const page = link.dataset.page;
       navigateToPage(page);
+      closeSidebar();
     });
   });
 
   document.getElementById("toggleBtn").addEventListener("click", toggleSidebar);
-  document.getElementById("sidebarToggleClose").addEventListener("click", toggleSidebar);
+  document.getElementById("sidebarClose").addEventListener("click", closeSidebar);
+  document.getElementById("sidebarOverlay").addEventListener("click", closeSidebar);
 
   document.getElementById("addReportBtn").addEventListener("click", openAddReportModal);
   document.getElementById("addReportBtn2").addEventListener("click", openAddReportModal);
@@ -134,10 +134,9 @@ function setupEventListeners() {
 
 function navigateToPage(page) {
   document.querySelectorAll(".page").forEach((p) => p.classList.remove("active"));
-
   document.getElementById(`${page}-page`).classList.add("active");
 
-  document.querySelectorAll(".nav-link").forEach((link) => {
+  document.querySelectorAll(".sidebar-nav .nav-link").forEach((link) => {
     link.classList.remove("active");
     if (link.dataset.page === page) {
       link.classList.add("active");
@@ -157,17 +156,25 @@ function navigateToPage(page) {
 
 function toggleSidebar() {
   const sidebar = document.getElementById("sidebar");
-  const mainContent = document.querySelector(".main-content");
-
-  sidebarCollapsed = !sidebarCollapsed;
-
-  if (sidebarCollapsed) {
-    sidebar.classList.add("collapsed");
-    mainContent.classList.add("expanded");
+  const overlay = document.getElementById("sidebarOverlay");
+  
+  sidebarOpen = !sidebarOpen;
+  
+  if (sidebarOpen) {
+    sidebar.classList.add("active");
+    overlay.classList.add("active");
   } else {
-    sidebar.classList.remove("collapsed");
-    mainContent.classList.remove("expanded");
+    sidebar.classList.remove("active");
+    overlay.classList.remove("active");
   }
+}
+
+function closeSidebar() {
+  const sidebar = document.getElementById("sidebar");
+  const overlay = document.getElementById("sidebarOverlay");
+  sidebarOpen = false;
+  sidebar.classList.remove("active");
+  overlay.classList.remove("active");
 }
 
 function renderReports() {
@@ -217,6 +224,15 @@ function createReportCard(report) {
     day: "numeric",
   });
 
+  let mapLinkHtml = '';
+  if (report.mapLink) {
+    mapLinkHtml = `
+      <a href="${report.mapLink}" target="_blank" class="map-link" onclick="event.stopPropagation();">
+        <i class="bi bi-geo-alt-fill"></i> View Map
+      </a>
+    `;
+  }
+
   card.innerHTML = `
     ${report.image ? `<img src="${report.image}" alt="${report.title}" class="report-card-image" onerror="this.style.display='none'">` : ""}
     <div class="report-card-body">
@@ -231,8 +247,11 @@ function createReportCard(report) {
       </div>
       <p class="report-card-excerpt">${report.message}</p>
       <div class="report-card-footer">
-        <span><i class="bi bi-chat-dots"></i> ${report.comments.length} comments</span>
-        <a href="#" onclick="openReportModal(${report.id}); return false;" class="btn btn-sm btn-outline-primary">View Details</a>
+        <div>
+          <span><i class="bi bi-chat-dots"></i> ${report.comments.length} comments</span>
+          ${mapLinkHtml}
+        </div>
+        <button class="btn btn-sm btn-outline-primary" onclick="event.stopPropagation(); openReportModal(${report.id});">View Details</button>
       </div>
     </div>
   `;
@@ -240,6 +259,25 @@ function createReportCard(report) {
   card.addEventListener("click", () => openReportModal(report.id));
 
   return card;
+}
+
+function extractCoordsFromMapLink(mapLink) {
+  if (!mapLink) return null;
+  
+  const patterns = [
+    /@(-?\d+\.?\d*),(-?\d+\.?\d*)/,
+    /\?q=(-?\d+\.?\d*),(-?\d+\.?\d*)/,
+    /place\/.*\/@(-?\d+\.?\d*),(-?\d+\.?\d*)/,
+    /ll=(-?\d+\.?\d*),(-?\d+\.?\d*)/,
+  ];
+  
+  for (const pattern of patterns) {
+    const match = mapLink.match(pattern);
+    if (match) {
+      return { lat: match[1], lng: match[2] };
+    }
+  }
+  return null;
 }
 
 function openReportModal(reportId) {
@@ -257,6 +295,14 @@ function openReportModal(reportId) {
     minute: "2-digit",
   });
 
+  const categoryLabels = {
+    maintenance: "Maintenance Issue",
+    safety: "Safety Concern",
+    improvement: "Improvement Suggestion",
+    damage: "Damage Report",
+    other: "Other"
+  };
+
   const commentsHtml = report.comments
     .map(
       (comment) => `
@@ -268,29 +314,81 @@ function openReportModal(reportId) {
     )
     .join("");
 
+  let mapHtml = '';
+  if (report.mapLink) {
+    const coords = extractCoordsFromMapLink(report.mapLink);
+    if (coords) {
+      mapHtml = `
+        <div class="map-section">
+          <h6><i class="bi bi-geo-alt"></i> Location</h6>
+          <iframe 
+            class="map-embed"
+            src="https://maps.google.com/maps?q=${coords.lat},${coords.lng}&z=15&output=embed"
+            allowfullscreen
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+          <a href="${report.mapLink}" target="_blank" class="map-external-link">
+            <i class="bi bi-box-arrow-up-right"></i> Open in Google Maps
+          </a>
+        </div>
+      `;
+    } else {
+      mapHtml = `
+        <div class="map-section">
+          <h6><i class="bi bi-geo-alt"></i> Location</h6>
+          <a href="${report.mapLink}" target="_blank" class="map-external-link">
+            <i class="bi bi-box-arrow-up-right"></i> View on Google Maps
+          </a>
+        </div>
+      `;
+    }
+  }
+
   modalContent.innerHTML = `
     <div class="report-details">
-      <h5>Report Information</h5>
-      <p><strong>Title:</strong> ${report.title}</p>
-      <p><strong>Park:</strong> ${report.park}</p>
-      <p><strong>Category:</strong> ${report.category}</p>
-      <p><strong>Status:</strong> <span class="badge bg-${report.status === "active" ? "success" : "info"}">${report.status}</span></p>
-      <p><strong>Date:</strong> ${formattedDate}</p>
-      <p><strong>Author:</strong> ${report.author}</p>
+      <div class="report-details-grid">
+        <div class="detail-item">
+          <div class="detail-label">Park</div>
+          <div class="detail-value">${report.park}</div>
+        </div>
+        <div class="detail-item">
+          <div class="detail-label">Category</div>
+          <div class="detail-value">${categoryLabels[report.category] || report.category}</div>
+        </div>
+        <div class="detail-item">
+          <div class="detail-label">Status</div>
+          <div class="detail-value">
+            <span class="badge ${report.status === 'active' ? 'bg-success' : 'bg-info'}">${report.status}</span>
+          </div>
+        </div>
+        <div class="detail-item">
+          <div class="detail-label">Submitted</div>
+          <div class="detail-value">${formattedDate}</div>
+        </div>
+        <div class="detail-item">
+          <div class="detail-label">Reported By</div>
+          <div class="detail-value">${report.author}</div>
+        </div>
+      </div>
 
-      <h5>Message</h5>
-      <p>${report.message}</p>
+      <div class="report-message-section">
+        <h6><i class="bi bi-chat-left-text"></i> Description</h6>
+        <p style="margin: 0;">${report.message}</p>
+      </div>
 
-      ${report.image ? `<img src="${report.image}" alt="${report.title}" onerror="this.style.display='none'">` : ""}
+      ${report.image ? `<img src="${report.image}" alt="${report.title}" class="report-image" onerror="this.style.display='none'">` : ""}
 
-      ${report.link ? `<h5>Additional Resources</h5><p><a href="${report.link}" target="_blank">${report.link}</a></p>` : ""}
+      ${mapHtml}
 
       <div class="comments-section">
         <h6><i class="bi bi-chat-dots"></i> Comments (${report.comments.length})</h6>
         ${commentsHtml || '<p class="text-muted">No comments yet.</p>'}
         <div class="comment-form">
           <input type="text" placeholder="Add a comment..." id="newComment" class="form-control">
-          <button class="btn btn-sm btn-primary" onclick="addComment(${report.id})">Post</button>
+          <button class="btn btn-success" onclick="addComment(${report.id})">
+            <i class="bi bi-send"></i>
+          </button>
         </div>
       </div>
     </div>
@@ -335,15 +433,10 @@ function renderMyReports() {
   }
 
   allReports = getAllReports();
-  const userReports = allReports.filter((r) => {
-    if (r.authorId !== null && r.authorId !== undefined) {
-      return r.authorId === currentUser.id;
-    }
-    return false;
-  });
+  const userReports = allReports.filter((r) => r.authorId === currentUser.id);
 
   if (userReports.length === 0) {
-    grid.innerHTML = '<p class="text-muted">You haven\'t submitted any reports yet.</p>';
+    grid.innerHTML = '<p class="text-muted">You haven\'t submitted any reports yet. Click "Add Report" to get started!</p>';
     return;
   }
 
@@ -351,6 +444,16 @@ function renderMyReports() {
     const card = createReportCard(report);
     grid.appendChild(card);
   });
+}
+
+function renderSettings() {
+  currentUser = getCurrentUser();
+  if (!currentUser) return;
+
+  document.getElementById("userName").textContent = currentUser.name;
+  document.getElementById("userEmail").textContent = currentUser.email;
+  document.getElementById("userType").textContent = currentUser.type === 'government' ? 'Government' : 'Community Member';
+  document.getElementById("memberSince").textContent = currentUser.memberSince;
 }
 
 function openAddReportModal() {
@@ -369,8 +472,8 @@ function submitNewReport() {
   const title = document.getElementById("reportTitle").value.trim();
   const park = document.getElementById("parkName").value.trim();
   const message = document.getElementById("reportMessage").value.trim();
+  const mapLink = document.getElementById("reportMapLink").value.trim();
   const image = document.getElementById("reportImage").value.trim();
-  const link = document.getElementById("reportLink").value.trim();
   const category = document.getElementById("reportCategory").value;
 
   if (!title || !park || !message || !category) {
@@ -385,8 +488,8 @@ function submitNewReport() {
     title,
     park,
     message,
-    image: image || "",
-    link,
+    image: image || null,
+    mapLink: mapLink || null,
     category,
     status: "active",
     author: currentUser.name,
@@ -398,34 +501,22 @@ function submitNewReport() {
   allReports.unshift(newReport);
   saveAllReports(allReports);
 
-  bootstrap.Modal.getInstance(document.getElementById("addReportModal")).hide();
+  const modal = bootstrap.Modal.getInstance(document.getElementById("addReportModal"));
+  modal.hide();
 
-  if (currentPage === "reports") {
-    renderReports();
-  } else if (currentPage === "my-reports") {
-    renderMyReports();
-  }
+  document.getElementById("reportForm").reset();
+  renderReports();
 
   alert("Report submitted successfully!");
-}
-
-function renderSettings() {
-  if (currentUser) {
-    document.getElementById("userName").textContent = currentUser.name;
-    document.getElementById("userEmail").textContent = currentUser.email;
-    document.getElementById("userType").textContent =
-      currentUser.type.charAt(0).toUpperCase() + currentUser.type.slice(1);
-    document.getElementById("memberSince").textContent = currentUser.memberSince;
-  }
 }
 
 function logout() {
   if (confirm("Are you sure you want to logout?")) {
     clearCurrentUser();
-    window.location.href = "login.html";
+    window.location.href = 'login.html';
   }
 }
 
 function editProfile() {
-  alert("Edit profile functionality would open a form to update user information.");
+  alert("Profile editing feature coming soon!");
 }
