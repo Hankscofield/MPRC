@@ -306,11 +306,15 @@ function openReportModal(reportId) {
   const commentsHtml = report.comments
     .map(
       (comment) => `
-      <div class="comment">
-        <div><strong class="comment-author">${comment.author}</strong> <span class="comment-time">${new Date(comment.date).toLocaleDateString()}</span></div>
-        <div class="comment-text">${comment.text}</div>
-      </div>
-    `
+        <div class="comment">
+          <div>
+            <strong class="comment-author">${comment.author}</strong>
+            ${comment.role ? `<span class="comment-role"> (${comment.role})</span>` : ""}
+            <span class="comment-time">${new Date(comment.date).toLocaleDateString()}</span>
+          </div>
+          <div class="comment-text">${comment.text}</div>
+        </div>
+      `
     )
     .join("");
 
@@ -413,6 +417,7 @@ function addComment(reportId) {
   if (report) {
     report.comments.push({
       author: currentUser.name,
+      role: currentUser.type,        // ⭐ ADD THIS
       text: commentText,
       date: new Date().toISOString(),
     });

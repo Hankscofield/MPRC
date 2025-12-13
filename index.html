@@ -20,31 +20,29 @@
 
   <div class="leaf-container" id="leafContainer"></div>
 
-<nav class="nav-glass" id="navbar">
-  <div class="nav-content">
-
-    <!-- Logo -->
-    <div class="logo">
-      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M16 4C16 4 12 8 12 14C12 17.3137 14.6863 20 18 20C21.3137 20 24 17.3137 24 14C24 8 20 4 20 4" 
-              stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        <path d="M16 14V28M16 28L12 24M16 28L20 24" 
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-      <span>MPRC</span>
+  <nav class="nav-glass" id="navbar">
+    <div class="nav-content">
+      <div class="logo">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16 4C16 4 12 8 12 14C12 17.3137 14.6863 20 18 20C21.3137 20 24 17.3137 24 14C24 8 20 4 20 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M16 14V28M16 28L12 24M16 28L20 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>MPRC</span>
+      </div>
+      <button class="mobile-menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="pages/reportsGuide.html" class="nav-link">Reports Guide</a>
+        <a href="pages/etiquette.html" class="nav-link">Etiquette</a>
+        <a href="pages/about.html" class="nav-link">About</a>
+        <a href="pages/redirect.html" class="nav-button">Get Started</a>
+      </div>
     </div>
-
-    <!-- Navigation Links -->
-    <div class="nav-links">
-      <a href="../index.html" class="nav-link">Home</a>
-      <a href="pages/app.html" class="nav-link">Reports</a>
-      <a href="pages/guide.html" class="nav-link">Guide</a>
-      <a href="pages/about.html" class="nav-link">About</a>
-      <a href="pages/redirect.html" class="nav-button">Get Started</a>
-    </div>
-
-  </div>
-</nav>
+  </nav>
 
   <section class="hero" id="hero">
     <div class="hero-background">
@@ -247,6 +245,34 @@
     </div>
   </section>
 
+  <div class="content-wrapper">
+  <section class="content-section">
+    <h2>Explore Our Resources</h2>
+    <div class="card-grid">
+      <div class="guide-card">
+        <h3>Park Etiquette Guide</h3>
+        <p>Learn the best practices for enjoying parks responsibly. Our comprehensive guide covers everything from waste management to respecting wildlife and fellow visitors.</p>
+        <a href="pages/etiquette.html" class="card-link">Read the Guide →</a>
+      </div>
+      <div class="guide-card">
+        <h3>Submit a Report</h3>
+        <p>Found an issue that needs attention? Submit a detailed report through our system and help improve your local park for everyone in the community.</p>
+        <a href="pages/reportsGuide.html" class="card-link">Submit Report →</a>
+      </div>
+      <div class="guide-card">
+        <h3>Complaint Resolution FAQ</h3>
+        <p>Understand how your reports are processed, what happens after submission, and how government agencies respond to community concerns.</p>
+        <a href="pages/faq.html" class="card-link">View FAQ →</a>
+      </div>
+      <div class="guide-card">
+        <h3>About MPRC</h3>
+        <p>Learn more about our organization, our partnerships with government agencies, and our commitment to improving public spaces across Myanmar.</p>
+        <a href="pages/about.html" class="card-link">Learn More →</a>
+      </div>
+    </div>
+  </section>
+</div>
+
   <section class="how-it-works" id="how">
     <div class="section-header">
       <br>
@@ -272,7 +298,8 @@
         <div class="step-number">02</div>
         <div class="step-icon-wrapper">
           <svg width="48" height="48" viewBox="0 0 48 48" fill="none" class="step-icon">
-            <path d="M40 18C40 28 24 38 24 38S8 28 8 18C8 11.3726 13.3726 6 20 6C22.6522 6 25.1957 6.87857 27.3137 8.46863C28.3447 9.23568 29.2286 10.1777 29.9239 11.2426C30.6193 10.1777 31.5032 9.23568 32.5342 8.46863C34.6522 6.87857 37.1957 6 39.8 6C43.7555 6 47 9.24446 47 13.2C47 15.0743 45.8257 16.6857 44.1714 17.5143" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M24 40s-10-6-16-14C4 20 4 12 10 8c4-3 10-2 14 2c4-4 10-5 14-2c6 4 6 12 2 18c-6 8-16 14-16 14z"
+                  stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
         <h3>Share Feedback</h3>
@@ -282,8 +309,30 @@
       <div class="step-card glass-effect" data-step="3">
         <div class="step-number">03</div>
         <div class="step-icon-wrapper">
-          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" class="step-icon" src="resources\noun-heart-8185038.svg">
-          </svg>
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" class="step-icon">
+            <!-- folded map panels -->
+            <path d="M6 10L16 6L32 10L42 6V34L32 38L16 34L6 38V10Z"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"/>
+            
+            <!-- fold lines -->
+            <path d="M16 6V34"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  opacity="0.35"/>
+
+            <path d="M32 10V38"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  opacity="0.35"/>
+          </svg>       
         </div>
         <h3>Participate & Grow</h3>
         <p>Join organized events, track progress, and watch your park transform</p>
@@ -328,7 +377,7 @@
         <h4>Quick Links</h4>
         <ul class="footer-links">
           <li><a href="#mission">Mission</a></li>
-          <li><a href="/guide.html">Guide</a></li>
+          <li><a href="/etiquette.html">Guide</a></li>
           <li><a href="/about.html">About</a></li>
         </ul>
       </div>

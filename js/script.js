@@ -281,7 +281,7 @@ function initButtonEffects() {
   const learnBtn = document.getElementById('learnBtn');
   if (learnBtn) {
     learnBtn.addEventListener('click', () => {
-      window.location.href = '/guide.html';
+      window.location.href = '/etiquette.html';
     });
   }
 

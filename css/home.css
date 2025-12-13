@@ -408,6 +408,117 @@ html {
   animation-fill-mode: both;
 }
 
+.content-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-lg) var(--spacing-md);
+}
+
+.content-section {
+  margin-bottom: var(--spacing-lg);
+}
+
+.content-section h2 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: var(--color-emerald);
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 3px solid var(--color-soft-mint);
+}
+
+.content-section h3 {
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+  color: var(--color-deep-forest);
+  margin: var(--spacing-md) 0 var(--spacing-sm);
+}
+
+.content-section h4 {
+  font-size: 1.1rem;
+  color: var(--color-moss);
+  margin: var(--spacing-sm) 0;
+}
+
+.content-section p {
+  margin-bottom: var(--spacing-sm);
+  line-height: 1.8;
+}
+
+.content-section ul, .content-section ol {
+  margin: var(--spacing-sm) 0 var(--spacing-md);
+  padding-left: var(--spacing-md);
+}
+
+.content-section li {
+  margin-bottom: var(--spacing-xs);
+  line-height: 1.7;
+}
+
+.highlight-box {
+  background: var(--color-soft-mint);
+  border-left: 4px solid var(--color-emerald);
+  padding: var(--spacing-md);
+  margin: var(--spacing-md) 0;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+.highlight-box.warning {
+  background: #fff3cd;
+  border-left-color: #ffc107;
+}
+
+.highlight-box.danger {
+  background: #f8d7da;
+  border-left-color: #dc3545;
+}
+
+.highlight-box.info {
+  background: var(--color-mist);
+  border-left-color: var(--color-sage);
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-md);
+  margin: var(--spacing-md) 0;
+}
+
+.guide-card {
+  background: var(--color-mist);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+  transition: var(--transition-smooth);
+  border: 1px solid var(--color-glass-border);
+}
+
+.guide-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-soft);
+  background: white;
+}
+
+.guide-card h3 {
+  color: var(--color-emerald);
+  margin-bottom: var(--spacing-sm);
+}
+
+.guide-card p {
+  color: var(--color-deep-forest);
+  margin-bottom: var(--spacing-sm);
+}
+
+.guide-card .card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  color: var(--color-emerald);
+  font-weight: 600;
+}
+
+.guide-card .card-link:hover {
+  gap: var(--spacing-sm);
+}
+
 .plant-container {
   position: relative;
   width: 400px;
