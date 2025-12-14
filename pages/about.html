@@ -7,9 +7,8 @@
   <link rel="stylesheet" href="../css/about.css">
   <link rel="stylesheet" href="../css/navbar.css">
   <link rel="stylesheet" href="../css/footer.css">
-
+  <link rel="icon" type="image/x-icon" href="../resources/logo.svg">
 </head>
-
 <body>
 
 <nav class="nav-glass" id="navbar">
@@ -17,12 +16,7 @@
 
     <!-- Logo -->
     <div class="logo">
-      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M16 4C16 4 12 8 12 14C12 17.3137 14.6863 20 18 20C21.3137 20 24 17.3137 24 14C24 8 20 4 20 4" 
-              stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        <path d="M16 14V28M16 28L12 24M16 28L20 24" 
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
+      <img src="../resources/logo.svg" alt="Logo" style="width: 24px; height: 24px;" />
       <span>MPRC</span>
     </div>
     <button class="mobile-menu-toggle" aria-label="Toggle menu">
@@ -42,8 +36,6 @@
   </div>
 </nav>
 
-
-
     <main>
       <!-- Hero Section -->
       <section class="page-hero">
@@ -51,194 +43,283 @@
         <p class="subtitle">Connecting communities with their parks, one report at a time</p>
       </section>
 
-      <div class="content-wrapper">
-        <!-- Mission Section -->
-        <section class="content-section mission-section">
-          <h2>Our Mission</h2>
-          <div class="mission-content">
-            <p>
-              We believe every park deserves care and every voice deserves to be heard. Our mission is to bridge the gap between citizens and authorities by providing a simple, accessible platform where park issues can be reported instantly and addressed effectively.
-            </p>
-            <p>
-              Born from a single observation at 8,000 feet, our platform empowers communities across Myanmar to take an active role in preserving and improving their local green spaces. We envision a future where no park issue goes unnoticed, and every community has the tools to protect their shared natural heritage.
-            </p>
-            <div class="mission-stats">
-              <div class="stat-card">
-                <div class="stat-number" id="parks-revitalized">0</div>
-                <div class="stat-label">Parks Revitalized</div>
-              </div>
-              <div class="stat-card">
-                <div class="stat-icon">🌳</div>
-                <div class="stat-label">Community-Driven Change</div>
-              </div>
-              <div class="stat-card">
-                <div class="stat-icon">🤝</div>
-                <div class="stat-label">Transparent Reporting</div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Team Section -->
-        <section class="content-section team-section">
-          <h2>Meet Our Team</h2>
-          <div class="team-grid">
-            <div class="team-card">
-              <div class="team-avatar">
-                <div class="avatar-placeholder">KHS</div>
-              </div>
-              <h3>Kaung Htut San</h3>
-              <p class="team-role">Full Stack Developer</p>
-              <p class="team-description">
-                Building seamless experiences across both backend infrastructure and frontend interfaces for our mobile application.
-              </p>
-            </div>
-
-            <div class="team-card">
-              <div class="team-avatar">
-                <div class="avatar-placeholder">NLH</div>
-              </div>
-              <h3>Nyan Lin Htet</h3>
-              <p class="team-role">Authentication Architect</p>
-              <p class="team-description">
-                Designed and implemented secure authentication systems to protect user data and ensure trusted reporting.
-              </p>
-            </div>
-
-            <div class="team-card">
-              <div class="team-avatar">
-                <div class="avatar-placeholder">HLS</div>
-              </div>
-              <h3>Han Lynn Shan</h3>
-              <p class="team-role">Content & Backend Engineer</p>
-              <p class="team-description">
-                Crafted the content architecture and backend systems that power our park information pages and reporting features.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <!-- Timeline Section -->
-        <section class="content-section timeline-section">
-          <h2>Our Journey</h2>
-          <p class="timeline-intro">From a single observation on a mountain trail to a community-wide movement for park preservation</p>
-
-          <div class="timeline">
-            <!-- Timeline Item 1 -->
-            <div class="timeline-item">
-              <div class="timeline-image">
-                <img src="https://images.pexels.com/photos/1674049/pexels-photo-1674049.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Mountain hiking trail" loading="lazy" />
-              </div>
-              <div class="timeline-content">
-                <h3>Discovery & Insight</h3>
-                <p>While hiking at 8,000 ft, a neglected park is found. Realization: many parks across Myanmar face similar issues silently. Core idea emerges — create a simple system that lets citizens report problems and authorities receive them instantly.</p>
-              </div>
-            </div>
-
-            <!-- Timeline Item 2 -->
-            <div class="timeline-item">
-              <div class="timeline-image">
-                <img src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Team brainstorming" loading="lazy" />
-              </div>
-              <div class="timeline-content">
-                <h3>Initial Concept Development</h3>
-                <p>Brainstorming on how to connect citizens and government without bureaucracy. Decision to build a website that acts as a central public reporting hub. Features outlined: report submission, issue tracking, park database, and community feedback.</p>
-              </div>
-            </div>
-
-            <!-- Timeline Item 3 -->
-            <div class="timeline-item">
-              <div class="timeline-image">
-                <img src="https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Design sketches" loading="lazy" />
-              </div>
-              <div class="timeline-content">
-                <h3>Design Drafts & Wireframes</h3>
-                <p>First layout sketches created. User flow planned: open website → select park → submit report (text + photo). Accessibility and simplicity prioritized for all users.</p>
-              </div>
-            </div>
-
-            <!-- Timeline Item 4 -->
-            <div class="timeline-item">
-              <div class="timeline-image">
-                <img src="https://images.pexels.com/photos/270348/pexels-photo-270348.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Coding and development" loading="lazy" />
-              </div>
-              <div class="timeline-content">
-                <h3>Website Development Begins</h3>
-                <p>Core structure coded: homepage, report form, and park listings. Database prepared to store reports and park details. Early demo created for team testing.</p>
-              </div>
-            </div>
-
-            <!-- Timeline Item 5 -->
-            <div class="timeline-item">
-              <div class="timeline-image">
-                <img src="https://images.pexels.com/photos/3861964/pexels-photo-3861964.jpeg?auto=compress&cs=tinysrgb&w=800" alt="System testing" loading="lazy" />
-              </div>
-              <div class="timeline-content">
-                <h3>System Testing & Adjustments</h3>
-                <p>Report submissions tested in real-time. Bugs fixed: missing icons, form validation, mobile responsiveness. Added admin panel for reviewing and organizing reports.</p>
-              </div>
-            </div>
-
-            <!-- Timeline Item 6 -->
-            <div class="timeline-item">
-              <div class="timeline-image">
-                <img src="https://images.pexels.com/photos/326503/pexels-photo-326503.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Final design polish" loading="lazy" />
-              </div>
-              <div class="timeline-content">
-                <h3>Final Polishing</h3>
-                <p>UI/UX refined and visual elements improved. Final copywriting, icons, images, and animations added. Privacy and responsible reporting guidelines written.</p>
-              </div>
-            </div>
-
-            <!-- Timeline Item 7 -->
-            <div class="timeline-item">
-              <div class="timeline-image">
-                <img src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Website launch celebration" loading="lazy" />
-              </div>
-              <div class="timeline-content">
-                <h3>Public Launch</h3>
-                <p>Website officially published and introduced to local communities. First round of reports submitted by early users. Outreach begins to authorities and community leaders.</p>
-              </div>
-            </div>
-
-            <!-- Timeline Item 8 -->
-            <div class="timeline-item">
-              <div class="timeline-image">
-                <img src="https://images.pexels.com/photos/1459505/pexels-photo-1459505.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Community engagement in park" loading="lazy" />
-              </div>
-              <div class="timeline-content">
-                <h3>Community Engagement & Field Testing</h3>
-                <p>Visited multiple parks to test reporting tools on-site. Collected photos, interviews, and feedback from locals. Improvements planned for Version 1.1.</p>
-              </div>
-            </div>
-
-            <!-- Timeline Item 9 -->
-            <div class="timeline-item timeline-item-highlight">
-              <div class="timeline-image">
-                <img src="https://images.pexels.com/photos/2007401/pexels-photo-2007401.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Beautiful revitalized park" loading="lazy" />
-              </div>
-              <div class="timeline-content">
-                <h3>Parks Revitalized</h3>
-                <p>Through community collaboration and responsive authorities, we're making a tangible difference in parks across Myanmar.</p>
-                <div class="timeline-stat">
-                  <span class="timeline-stat-number" id="timeline-parks-count">0</span>
-                  <span class="timeline-stat-label">Parks Revitalized So Far</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Call to Action -->
-        <section class="content-section cta-section">
-          <div class="cta-box">
-            <h2>Join Us in Making a Difference</h2>
-            <p>Every report counts. Every voice matters. Together, we can ensure every park in Myanmar receives the care it deserves.</p>
-            <button class="cta-button" onclick="window.location.href='/'">Start Reporting</button>
-          </div>
-        </section>
+  <!-- Mission Section -->
+  <section class="mission-section">
+    <div class="container">
+      <div class="section-heading">
+        <div class="heading-decoration"></div>
+        <h2>Our Mission</h2>
+        <div class="heading-decoration heading-decoration-reverse"></div>
       </div>
-    </main>
+
+      <div class="mission-content">
+        <div class="mission-text">
+          <p>
+            We believe every park deserves care and every voice deserves to be heard. Our mission is to bridge the gap between citizens and authorities by providing a simple, accessible platform where park issues can be reported instantly and addressed effectively.
+          </p>
+          <p>
+            Born from a single observation at 8,000 feet, our platform empowers communities across Myanmar to take an active role in preserving and improving their local green spaces. We envision a future where no park issue goes unnoticed, and every community has the tools to protect their shared natural heritage.
+          </p>
+        </div>
+
+        <div class="mission-stats">
+          <div class="stat-card">
+            <div class="stat-number">15</div>
+            <div class="stat-label">Parks Revitalized</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">🌳</div>
+            <div class="stat-label">Community-Driven Change</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">🤝</div>
+            <div class="stat-label">Transparent Reporting</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="team-section">
+    <div class="container">
+      <div class="section-heading">
+        <div class="heading-decoration"></div>
+        <h2>Meet Our Team</h2>
+        <div class="heading-decoration heading-decoration-reverse"></div>
+      </div>
+
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-card-accent"></div>
+          <div class="team-avatar">
+            <div class="avatar-placeholder">KHS</div>
+          </div>
+          <h3>Kaung Htut San</h3>
+          <p class="team-role">Full Stack Developer</p>
+          <p class="team-description">
+            Building seamless experiences across both backend infrastructure and frontend interfaces for our mobile application.
+          </p>
+        </div>
+
+        <div class="team-card">
+          <div class="team-card-accent"></div>
+          <div class="team-avatar">
+            <div class="avatar-placeholder">NLH</div>
+          </div>
+          <h3>Nyan Lin Htet</h3>
+          <p class="team-role">Authentication Architect</p>
+          <p class="team-description">
+            Designed and implemented secure authentication systems to protect user data and ensure trusted reporting.
+          </p>
+        </div>
+
+        <div class="team-card">
+          <div class="team-card-accent"></div>
+          <div class="team-avatar">
+            <div class="avatar-placeholder">HLS</div>
+          </div>
+          <h3>Han Lynn Shan</h3>
+          <p class="team-role">Content & Backend Engineer</p>
+          <p class="team-description">
+            Crafted the content architecture and backend systems that power our park information pages and reporting features.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section class="gallery-section">
+    <div class="container">
+      <div class="section-heading">
+        <div class="heading-decoration"></div>
+        <h2>Our Gallery</h2>
+        <div class="heading-decoration heading-decoration-reverse"></div>
+      </div>
+      <p class="section-subtitle">Capturing the beauty and progress of parks across Myanmar</p>
+
+      <div class="gallery-grid">
+        <div class="gallery-item gallery-item-large" data-caption="Scenic Park View">
+          <img src="https://images.pexels.com/photos/1770809/pexels-photo-1770809.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Beautiful park landscape" loading="lazy">
+          <div class="gallery-overlay">
+            <span>Scenic Park View</span>
+          </div>
+        </div>
+        <div class="gallery-item" data-caption="Walking Trails">
+          <img src="https://images.pexels.com/photos/1450082/pexels-photo-1450082.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Park pathway" loading="lazy">
+          <div class="gallery-overlay">
+            <span>Walking Trails</span>
+          </div>
+        </div>
+        <div class="gallery-item" data-caption="Community Gardens">
+          <img src="https://images.pexels.com/photos/1179229/pexels-photo-1179229.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Community garden" loading="lazy">
+          <div class="gallery-overlay">
+            <span>Community Gardens</span>
+          </div>
+        </div>
+        <div class="gallery-item" data-caption="Park Features">
+          <img src="https://images.pexels.com/photos/1367192/pexels-photo-1367192.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Park fountain" loading="lazy">
+          <div class="gallery-overlay">
+            <span>Park Features</span>
+          </div>
+        </div>
+        <div class="gallery-item" data-caption="Nature Trails">
+          <img src="https://images.pexels.com/photos/1423600/pexels-photo-1423600.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Nature trail" loading="lazy">
+          <div class="gallery-overlay">
+            <span>Nature Trails</span>
+          </div>
+        </div>
+        <div class="gallery-item" data-caption="Morning Views">
+          <img src="https://images.pexels.com/photos/1480807/pexels-photo-1480807.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Sunrise at park" loading="lazy">
+          <div class="gallery-overlay">
+            <span>Morning Views</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="gallery-add-prompt">
+        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+        </svg>
+        <span>Add your photos to the gallery</span>
+      </div> -->
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+      <div class="lightbox-content">
+        <img src="" alt="" id="lightbox-image">
+        <div class="lightbox-caption" id="lightbox-caption"></div>
+        <button class="lightbox-close" id="lightbox-close">
+          <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline Section (NOT MODIFIED) -->
+  <section class="timeline-section">
+    <div class="container">
+      <div class="section-heading">
+        <div class="heading-decoration"></div>
+        <h2>Our Journey</h2>
+        <div class="heading-decoration heading-decoration-reverse"></div>
+      </div>
+      <p class="timeline-intro">From a single observation on a mountain trail to a community-wide movement for park preservation</p>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-image">
+            <img src="https://images.pexels.com/photos/1674049/pexels-photo-1674049.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Mountain hiking trail" loading="lazy">
+          </div>
+          <div class="timeline-content">
+            <h3>Discovery & Insight</h3>
+            <p>While hiking at 8,000 ft, a neglected park is found. Realization: many parks across Myanmar face similar issues silently. Core idea emerges — create a simple system that lets citizens report problems and authorities receive them instantly.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-image">
+            <img src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Team brainstorming" loading="lazy">
+          </div>
+          <div class="timeline-content">
+            <h3>Initial Concept Development</h3>
+            <p>Brainstorming on how to connect citizens and government without bureaucracy. Decision to build a website that acts as a central public reporting hub. Features outlined: report submission, issue tracking, park database, and community feedback.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-image">
+            <img src="https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Design sketches" loading="lazy">
+          </div>
+          <div class="timeline-content">
+            <h3>Design Drafts & Wireframes</h3>
+            <p>First layout sketches created. User flow planned: open website → select park → submit report (text + photo). Accessibility and simplicity prioritized for all users.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-image">
+            <img src="https://images.pexels.com/photos/270348/pexels-photo-270348.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Coding and development" loading="lazy">
+          </div>
+          <div class="timeline-content">
+            <h3>Website Development Begins</h3>
+            <p>Core structure coded: homepage, report form, and park listings. Database prepared to store reports and park details. Early demo created for team testing.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-image">
+            <img src="https://images.pexels.com/photos/3861964/pexels-photo-3861964.jpeg?auto=compress&cs=tinysrgb&w=800" alt="System testing" loading="lazy">
+          </div>
+          <div class="timeline-content">
+            <h3>System Testing & Adjustments</h3>
+            <p>Report submissions tested in real-time. Bugs fixed: missing icons, form validation, mobile responsiveness. Added admin panel for reviewing and organizing reports.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-image">
+            <img src="https://images.pexels.com/photos/326503/pexels-photo-326503.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Final design polish" loading="lazy">
+          </div>
+          <div class="timeline-content">
+            <h3>Final Polishing</h3>
+            <p>UI/UX refined and visual elements improved. Final copywriting, icons, images, and animations added. Privacy and responsible reporting guidelines written.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-image">
+            <img src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Website launch celebration" loading="lazy">
+          </div>
+          <div class="timeline-content">
+            <h3>Public Launch</h3>
+            <p>Website officially published and introduced to local communities. First round of reports submitted by early users. Outreach begins to authorities and community leaders.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-image">
+            <img src="https://images.pexels.com/photos/1459505/pexels-photo-1459505.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Community engagement in park" loading="lazy">
+          </div>
+          <div class="timeline-content">
+            <h3>Community Engagement & Field Testing</h3>
+            <p>Visited multiple parks to test reporting tools on-site. Collected photos, interviews, and feedback from locals. Improvements planned for Version 1.1.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item timeline-item-highlight">
+          <div class="timeline-image">
+            <img src="https://images.pexels.com/photos/2007401/pexels-photo-2007401.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Beautiful revitalized park" loading="lazy">
+          </div>
+          <div class="timeline-content">
+            <h3>Parks Revitalized</h3>
+            <p>Through community collaboration and responsive authorities, we're making a tangible difference in parks across Myanmar.</p>
+            <div class="timeline-stat">
+              <span class="timeline-stat-number">15</span>
+              <span class="timeline-stat-label">Parks Revitalized So Far</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<!-- 
+  CTA Section
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-box">
+        <div class="cta-decoration cta-decoration-1"></div>
+        <div class="cta-decoration cta-decoration-2"></div>
+        <h2>Join Us in Making a Difference</h2>
+        <p>Every report counts. Every voice matters. Together, we can ensure every park in Myanmar receives the care it deserves.</p>
+        <button class="cta-button" onclick="window.location.href='/'">Start Reporting</button>
+      </div>
+    </div>
+  </section> -->
 
 <footer class="footer">
     <div class="footer-main">
@@ -342,6 +423,9 @@
       </div>
     </div>
   </footer>
+
+  <script src="../js/about.js"></script>
+  <script src="../js/main.js"></script>
 
 </body>
 </html>

@@ -1,7 +1,7 @@
 // About page functionality
 
-// Parks revitalized count - you can update this value or fetch from JSON
-const PARKS_REVITALIZED = 12; // Replace with actual value or fetch from your data
+// Parks revitalized count - we can update this value or fetch from JSON
+const PARKS_REVITALIZED = 3; // Replace with actual value or fetch from our data
 
 // Animate counter
 function animateCounter(element, target, duration = 2000) {
@@ -187,3 +187,123 @@ if (typeof module !== 'undefined' && module.exports) {
     PARKS_REVITALIZED
   };
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImage = document.getElementById('lightbox-image');
+  const lightboxCaption = document.getElementById('lightbox-caption');
+  const lightboxClose = document.getElementById('lightbox-close');
+  const galleryItems = document.querySelectorAll('.gallery-item');
+
+  // Open lightbox when clicking gallery item
+  galleryItems.forEach(function(item) {
+    item.addEventListener('click', function() {
+      const img = item.querySelector('img');
+      const caption = item.getAttribute('data-caption');
+      
+      lightboxImage.src = img.src;
+      lightboxImage.alt = img.alt;
+      lightboxCaption.textContent = caption;
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  // Close lightbox when clicking close button
+  lightboxClose.addEventListener('click', function() {
+    closeLightbox();
+  });
+
+  // Close lightbox when clicking outside the image
+  lightbox.addEventListener('click', function(e) {
+    if (e.target === lightbox) {
+      closeLightbox();
+    }
+  });
+
+  // Close lightbox with Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+      closeLightbox();
+    }
+  });
+
+  function closeLightbox() {
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  // ========================================
+  // Animate Stats on Scroll
+  // ========================================
+
+  const statNumbers = document.querySelectorAll('.stat-number, .timeline-stat-number');
+  
+  const observerOptions = {
+    threshold: 0.5,
+    rootMargin: '0px'
+  };
+
+  const animateNumber = function(element, target) {
+    let current = 0;
+    const increment = target / 30;
+    const duration = 1000;
+    const stepTime = duration / 30;
+
+    const timer = setInterval(function() {
+      current += increment;
+      if (current >= target) {
+        element.textContent = target;
+        clearInterval(timer);
+      } else {
+        element.textContent = Math.floor(current);
+      }
+    }, stepTime);
+  };
+
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        const element = entry.target;
+        const value = parseInt(element.textContent);
+        
+        if (!isNaN(value) && value > 0) {
+          element.textContent = '0';
+          animateNumber(element, value);
+        }
+        
+        observer.unobserve(element);
+      }
+    });
+  }, observerOptions);
+
+  statNumbers.forEach(function(stat) {
+    observer.observe(stat);
+  });
+
+  // ========================================
+  // Smooth Scroll Reveal Animation
+  // ========================================
+
+//   const revealElements = document.querySelectorAll('.mission-content, .team-card, .gallery-item, .cta-box');
+  
+//   const revealObserver = new IntersectionObserver(function(entries) {
+//     entries.forEach(function(entry) {
+//       if (entry.isIntersecting) {
+//         entry.target.style.opacity = '1';
+//         entry.target.style.transform = 'translateY(0)';
+//         revealObserver.unobserve(entry.target);
+//       }
+//     });
+//   }, {
+//     threshold: 0.1,
+//     rootMargin: '0px 0px -50px 0px'
+//   });
+
+//   revealElements.forEach(function(element) {
+//     element.style.opacity = '0';
+//     element.style.transform = 'translateY(20px)';
+//     element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+//     revealObserver.observe(element);
+//   });
+// });
