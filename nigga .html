@@ -1,458 +1,64 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Park Picnic Etiquette: Clean-Up Guidelines</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: #f9fbf7;
-            color: #2d3e2f;
-            line-height: 1.6;
-            padding: 20px;
-            background-image: 
-                radial-gradient(#e0f0da 1px, transparent 1px),
-                radial-gradient(#e0f0da 1px, transparent 1px);
-            background-size: 30px 30px;
-            background-position: 0 0, 15px 15px;
-        }
-        
-        .content-container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 30px;
-            background-color: rgba(255, 255, 255, 0.92);
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(45, 62, 47, 0.1);
-            border: 1px solid #d4e6cf;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        /* Decorative elements */
-        .content-container::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 8px;
-            background: linear-gradient(90deg, #7cb083, #4a8c5c, #2d6d42);
-            border-radius: 20px 20px 0 0;
-        }
-        
-        .leaf-decoration {
-            position: absolute;
-            opacity: 0.1;
-            z-index: 0;
-        }
-        
-        .leaf-1 {
-            top: 50px;
-            right: 30px;
-            font-size: 120px;
-            color: #4a8c5c;
-            transform: rotate(25deg);
-        }
-        
-        .leaf-2 {
-            bottom: 60px;
-            left: 30px;
-            font-size: 90px;
-            color: #2d6d42;
-            transform: rotate(-15deg);
-        }
-        
-        .leaf-3 {
-            top: 150px;
-            left: 40px;
-            font-size: 70px;
-            color: #7cb083;
-            transform: rotate(45deg);
-        }
-        
-        h2 {
-            color: #2d6d42;
-            font-size: 2.8rem;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 3px solid #e0f0da;
-            position: relative;
-            z-index: 1;
-        }
-        
-        h2::after {
-            content: "";
-            position: absolute;
-            bottom: -3px;
-            left: 0;
-            width: 120px;
-            height: 3px;
-            background-color: #4a8c5c;
-        }
-        
-        h3 {
-            color: #3a7c4f;
-            font-size: 1.8rem;
-            margin: 35px 0 20px;
-            padding-left: 15px;
-            border-left: 5px solid #7cb083;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .intro-paragraph {
-            font-size: 1.2rem;
-            background-color: #f0f8ed;
-            padding: 25px;
-            border-radius: 12px;
-            margin-bottom: 30px;
-            border-left: 5px solid #4a8c5c;
-            box-shadow: 0 5px 15px rgba(124, 176, 131, 0.1);
-            position: relative;
-            z-index: 1;
-        }
-        
-        .intro-paragraph::before {
-            content: "💡";
-            position: absolute;
-            top: -15px;
-            left: -15px;
-            background-color: #fff;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-        }
-        
-        .checklist-container, .waste-container, .beyond-container {
-            background-color: #fff;
-            border-radius: 15px;
-            padding: 25px;
-            margin-bottom: 30px;
-            box-shadow: 0 8px 20px rgba(124, 176, 131, 0.12);
-            border: 1px solid #e0f0da;
-            position: relative;
-            z-index: 1;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .checklist-container:hover, .waste-container:hover, .beyond-container:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 25px rgba(124, 176, 131, 0.18);
-        }
-        
-        .checklist-container {
-            border-top: 8px solid #7cb083;
-        }
-        
-        .waste-container {
-            border-top: 8px solid #4a8c5c;
-        }
-        
-        .beyond-container {
-            border-top: 8px solid #2d6d42;
-        }
-        
-        ol, ul {
-            padding-left: 25px;
-            margin-bottom: 20px;
-        }
-        
-        li {
-            margin-bottom: 15px;
-            padding-left: 10px;
-            position: relative;
-        }
-        
-        .checklist-container li::before {
-            content: "✓";
-            position: absolute;
-            left: -25px;
-            top: 0;
-            background-color: #7cb083;
-            color: white;
-            width: 22px;
-            height: 22px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.9rem;
-            font-weight: bold;
-        }
-        
-        .waste-container li::before {
-            content: "♻";
-            position: absolute;
-            left: -25px;
-            top: 0;
-            background-color: #4a8c5c;
-            color: white;
-            width: 22px;
-            height: 22px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.9rem;
-        }
-        
-        .beyond-container li::before {
-            content: "⭐";
-            position: absolute;
-            left: -25px;
-            top: 0;
-            background-color: #f2c94c;
-            color: #2d3e2f;
-            width: 22px;
-            height: 22px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.9rem;
-        }
-        
-        strong {
-            color: #2d6d42;
-            font-weight: 700;
-        }
-        
-        .icon-box {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: #e0f0da;
-            border-radius: 10px;
-            margin-right: 10px;
-            color: #2d6d42;
-            font-size: 1.2rem;
-        }
-        
-        .section-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-        
-        .interactive-reminder {
-            background: linear-gradient(to right, #f0f8ed, #e0f0da);
-            border-radius: 12px;
-            padding: 20px;
-            margin-top: 40px;
-            text-align: center;
-            border: 2px dashed #7cb083;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .reminder-title {
-            font-size: 1.5rem;
-            color: #2d6d42;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-        
-        .clean-button {
-            display: inline-block;
-            background: linear-gradient(to right, #4a8c5c, #2d6d42);
-            color: white;
-            border: none;
-            padding: 14px 28px;
-            font-size: 1.1rem;
-            border-radius: 50px;
-            margin-top: 15px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 600;
-            box-shadow: 0 5px 15px rgba(45, 109, 66, 0.3);
-        }
-        
-        .clean-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(45, 109, 66, 0.4);
-            background: linear-gradient(to right, #5a9c6c, #3d7d52);
-        }
-        
-        .clean-button:active {
-            transform: translateY(1px);
-        }
-        
-        @media (max-width: 768px) {
-            .content-container {
-                padding: 20px;
-            }
-            
-            h2 {
-                font-size: 2.2rem;
-            }
-            
-            h3 {
-                font-size: 1.5rem;
-            }
-            
-            .leaf-decoration {
-                display: none;
-            }
-        }
-        
-        .footer-note {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #e0f0da;
-            color: #5a7c5f;
-            font-style: italic;
-            position: relative;
-            z-index: 1;
-        }
-    </style>
-</head>
-<body>
-    <div class="content-container">
-        <!-- Decorative leaf elements -->
-        <div class="leaf-decoration leaf-1">
-            <i class="fas fa-leaf"></i>
-        </div>
-        <div class="leaf-decoration leaf-2">
-            <i class="fas fa-leaf"></i>
-        </div>
-        <div class="leaf-decoration leaf-3">
-            <i class="fas fa-leaf"></i>
-        </div>
-        
-        <h2>Clean-Up Expectations</h2>
-        
-        <div class="intro-paragraph">
-            <p>The most important aspect of picnic etiquette is leaving your area clean—ideally cleaner than you found it. Your clean-up directly affects the experience of the next users and the overall health of the park.</p>
-        </div>
-        
-        <div class="checklist-container">
-            <div class="section-header">
-                <div class="icon-box">
-                    <i class="fas fa-clipboard-check"></i>
-                </div>
-                <h3>Clean-Up Checklist</h3>
-            </div>
-            
-            <ol>
-                <li><strong>Collect all obvious trash:</strong> Gather plates, napkins, wrappers, bottles, and other visible waste into a trash bag.</li>
-                <li><strong>Check the ground:</strong> Walk around your entire area looking for fallen items, food scraps, and small pieces of litter that may have blown or fallen.</li>
-                <li><strong>Check under tables and benches:</strong> Items often end up in these hidden spots.</li>
-                <li><strong>Wipe down tables:</strong> If you spilled anything or the table is sticky, wipe it down. Consider bringing a cloth for this purpose.</li>
-                <li><strong>Dispose of trash properly:</strong> Use the nearest bins. If bins are full, take your trash with you.</li>
-                <li><strong>Remove all belongings:</strong> Don't leave behind tablecloths, dishes, toys, or decorations.</li>
-                <li><strong>Check for food residue:</strong> Ensure no food scraps remain that could attract pests.</li>
-                <li><strong>Final sweep:</strong> Take one last look around before leaving.</li>
-            </ol>
-        </div>
-        
-        <div class="waste-container">
-            <div class="section-header">
-                <div class="icon-box">
-                    <i class="fas fa-recycle"></i>
-                </div>
-                <h3>Handling Different Types of Waste</h3>
-            </div>
-            
-            <ul>
-                <li><strong>Food waste:</strong> All uneaten food should go in the trash, not on the ground "for birds" or scattered in bushes. This includes fruit peels, seeds, and cores.</li>
-                <li><strong>Liquids:</strong> Don't pour liquids on the ground. Dispose of beverages in trash bins or take containers home.</li>
-                <li><strong>Recyclables:</strong> If recycling bins are available, separate recyclable items. Crush bottles and cans to save space.</li>
-                <li><strong>Hot coals or ash:</strong> If grilling is permitted and you've used a park-provided grill, ensure coals are completely cool before leaving. Use provided ash disposal areas if available.</li>
-                <li><strong>Party decorations:</strong> Balloons, streamers, confetti, and other decorations must all be removed. Balloons are especially dangerous to wildlife.</li>
-            </ul>
-        </div>
-        
-        <div class="beyond-container">
-            <div class="section-header">
-                <div class="icon-box">
-                    <i class="fas fa-star"></i>
-                </div>
-                <h3>Going Beyond the Minimum</h3>
-            </div>
-            
-            <p>Excellent picnic etiquette means not just cleaning up after yourself, but leaving the area better than you found it:</p>
-            <ul>
-                <li>Pick up any litter left by previous users</li>
-                <li>Wipe down the table even if your group didn't dirty it</li>
-                <li>Report any maintenance issues you notice (damaged tables, overflowing bins, etc.)</li>
-                <li>If you see an incoming group, offer to show them where the bins are located</li>
-            </ul>
-        </div>
-        
-        <div class="interactive-reminder">
-            <div class="reminder-title">
-                <i class="fas fa-hands-helping"></i>
-                <span>Leave It Better Than You Found It!</span>
-                <i class="fas fa-hands-helping"></i>
-            </div>
-            <p>Your efforts make a difference for the next visitors and for park wildlife. Share these guidelines with fellow picnickers!</p>
-            <button class="clean-button" id="pledgeButton">
-                <i class="fas fa-leaf"></i> I Pledge to Leave No Trace
-            </button>
-        </div>
-        
-        <div class="footer-note">
-            <p>Thank you for being a responsible park visitor and helping preserve our natural spaces for everyone to enjoy.</p>
-        </div>
+<section class="content-section">
+  <!-- Hero image with text overlay -->
+  <div class="impact-row">
+    <div class="impact-image">
+      <img src="images/outdoor-gym-overview.jpg" alt="Complete outdoor gym area">
+    </div>
+    <div class="impact-text">
+      <h2>Using Equipment Safely</h2>
+      <p>Many parks offer outdoor fitness equipment—chin-up bars, parallel bars, exercise machines, and more. Using this equipment safely and sharing it fairly requires awareness and consideration.</p>
+    </div>
+  </div>
+
+  <!-- 3-image grid for the 3 sections -->
+  <div class="image-grid">
+    <div class="guide-card">
+      <img src="images/personal-safety-demo.jpg" alt="Safety demonstration">
+      <h4>Personal Safety</h4>
+      <p>Inspect equipment, warm up, know your limits</p>
+    </div>
+    <div class="guide-card">
+      <img src="images/taking-turns.jpg" alt="People sharing equipment">
+      <h4>Sharing Equipment</h4>
+      <p>Time limits, working in, yielding to others</p>
+    </div>
+    <div class="guide-card">
+      <img src="images/cleaning-equipment.jpg" alt="Wiping equipment">
+      <h4>Hygiene & Maintenance</h4>
+      <p>Clean after use, report damage, no modifications</p>
+    </div>
+  </div>
+
+  <!-- Detailed content below -->
+  <div class="image-text">
+    <img src="images/inspection-detail.jpg" alt="Close-up of equipment inspection">
+    <div>
+      <h3>Personal Safety Details</h3>
+        <ul>
+          <li><strong>Inspect before use:</strong> Check equipment for damage, loose bolts, or wear before using. Report any issues to MPRC.</li>
+          <li><strong>Understand the equipment:</strong> If you're not sure how to use something, observe others or look for instructional signs.</li>
+          <li><strong>Warm up first:</strong> Cold muscles are injury-prone. Do light warm-up exercises before using resistance equipment.</li>
+          <li><strong>Know your limits:</strong> Don't attempt exercises beyond your current ability. Build up gradually.</li>
+          <li><strong>Maintain control:</strong> Move through exercises with control, not momentum. This is safer and more effective.</li>
+          <li><strong>Watch your surroundings:</strong> Be aware of space around you, especially when using equipment that involves swinging or extending limbs.</li>
+        </ul>
     </div>
 
-    <script>
-        // Interactive button functionality
-        document.getElementById('pledgeButton').addEventListener('click', function() {
-            const button = this;
-            const originalText = button.innerHTML;
-            
-            // Change button text and style temporarily
-            button.innerHTML = '<i class="fas fa-check"></i> Thank You for Your Commitment!';
-            button.style.background = 'linear-gradient(to right, #2d6d42, #1a4d2d)';
-            
-            // Show a confirmation message
-            const reminderDiv = document.querySelector('.interactive-reminder');
-            const newMessage = document.createElement('p');
-            newMessage.innerHTML = '<strong><i class="fas fa-heart"></i> Every clean picnic area makes a difference!</strong>';
-            newMessage.style.marginTop = '15px';
-            newMessage.style.color = '#2d6d42';
-            newMessage.style.fontSize = '1.1rem';
-            reminderDiv.appendChild(newMessage);
-            
-            // Reset button after 3 seconds
-            setTimeout(function() {
-                button.innerHTML = originalText;
-                button.style.background = 'linear-gradient(to right, #4a8c5c, #2d6d42)';
-            }, 3000);
-        });
-        
-        // Add subtle animation to checklist items on hover
-        document.querySelectorAll('.checklist-container li, .waste-container li, .beyond-container li').forEach(item => {
-            item.addEventListener('mouseover', function() {
-                this.style.transform = 'translateX(5px)';
-                this.style.transition = 'transform 0.2s ease';
-            });
-            
-            item.addEventListener('mouseout', function() {
-                this.style.transform = 'translateX(0)';
-            });
-        });
-    </script>
-</body>
-</html>
+            <h3>Sharing Equipment</h3>
+        <ul>
+          <li><strong>Reasonable time limits:</strong> When others are waiting, limit yourself to 10-15 minutes per piece of equipment, or 2-3 sets of exercises.</li>
+          <li><strong>Work in:</strong> It's acceptable to ask "Mind if I work in?" when someone is between sets. Alternate sets efficiently.</li>
+          <li><strong>Don't monopolize:</strong> Avoid "circuiting" through multiple pieces of equipment in a way that ties them all up.</li>
+          <li><strong>Yield to others:</strong> If you're resting, don't sit on equipment. Step away so others can use it.</li>
+          <li><strong>Help if asked:</strong> If someone asks for a spot or how to use equipment, help if you're able.</li>
+        </ul>
+
+        <h3>Hygiene and Maintenance</h3>
+        <ul>
+          <li><strong>Wipe equipment:</strong> If you sweat heavily, consider bringing a towel to wipe handles after use.</li>
+          <li><strong>Report damage:</strong> If you notice damaged or dangerous equipment, report it through MPRC immediately.</li>
+          <li><strong>Don't modify:</strong> Never attempt to adjust, repair, or modify park equipment yourself.</li>
+          <li><strong>No food or drinks:</strong> Keep food and sugary drinks away from equipment to prevent attracting pests and creating mess.</li>
+        </ul>
+  </div>
+</section>
