@@ -31,7 +31,7 @@
       justify-content: space-between;
       align-items: center;
       color: white;
-      /* Sticky positioning often helps with this layout */
+      Sticky positioning often helps with this layout
       position: sticky;
       top: 0;
       z-index: 1000;
@@ -41,7 +41,7 @@
       font-size: 1.4rem;
       letter-spacing: 1px;
       margin: 0; /* Reset default browser margin */
-    }
+    /* } */
 
     nav a {
       margin-left: 20px;

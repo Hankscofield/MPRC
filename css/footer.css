@@ -65,9 +65,12 @@
 }
 
 .footer-bottom {
+  display: flex;
+  align-content: center;
+  justify-content: center;
   max-width: 1400px;
   margin: 0 auto;
-  padding-top: var(--spacing-lg);
+  padding-top: var(--spacing-md);
   border-top: 1px solid rgba(226, 251, 206, 0.2);
   text-align: center;
   color: var(--color-sage);

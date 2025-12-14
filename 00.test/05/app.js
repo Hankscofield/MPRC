@@ -237,7 +237,7 @@ function renderReports() {
   grid.innerHTML = "";
 
   if (filtered.length === 0) {
-    grid.innerHTML = '<p styles="color: white;">No reports found.</p>';
+    grid.innerHTML = '<p class="text-muted">No reports found.</p>';
     return;
   }
 
