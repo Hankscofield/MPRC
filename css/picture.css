@@ -1,0 +1,57 @@
+.image-section {
+  padding: 2rem 0;
+}
+
+/* Grid images (2–3 images) */
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.image-grid img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+}
+
+/* Image + text layout */
+.image-text {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+.image-text img {
+  width: 40%;
+  max-height: 260px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.image-text div {
+  flex: 1;
+}
+
+/* Guide card images */
+.guide-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 0.8rem;
+}
+
+/* Smooth hover (optional) */
+.image-grid img,
+.guide-card img {
+  transition: transform 0.3s ease;
+}
+
+.image-grid img:hover,
+.guide-card img:hover {
+  transform: scale(1.03);
+}
