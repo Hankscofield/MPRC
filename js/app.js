@@ -12,6 +12,7 @@ function clearCurrentUser() {
   localStorage.removeItem(SESSION_KEY);
 }
 
+
 function deleteUserAccount() {
   const currentUser = getCurrentUser();
   if (!currentUser) return;
@@ -100,6 +101,35 @@ const sampleReports = [
     comments: [],
   },
 ];
+
+/* ===============================
+   Bad Words Censor System
+================================ */
+
+const BAD_WORDS = [
+  "fuck",
+  "shit",
+  "bitch",
+  "asshole",
+  "bastard",
+  "damn",
+  "crap"
+  // add more as needed
+];
+
+function censorText(text) {
+  if (!text) return text;
+
+  let censored = text;
+
+  BAD_WORDS.forEach(word => {
+    const regex = new RegExp(`\\b${word}\\b`, "gi");
+    censored = censored.replace(regex, "*".repeat(word.length));
+  });
+
+  return censored;
+}
+
 
 function getAllReports() {
   const stored = localStorage.getItem(REPORTS_KEY);
@@ -442,7 +472,7 @@ document.getElementById("reportModal").addEventListener("hidden.bs.modal", () =>
 
 function addComment(reportId) {
   const commentInput = document.getElementById("newComment");
-  const commentText = commentInput.value.trim();
+  const commentText = censorText(commentInput.value.trim());
 
   if (!commentText) return;
 
@@ -510,9 +540,9 @@ function submitNewReport() {
     return;
   }
 
-  const title = document.getElementById("reportTitle").value.trim();
-  const park = document.getElementById("parkName").value.trim();
-  const message = document.getElementById("reportMessage").value.trim();
+  const title = censorText(document.getElementById("reportTitle").value.trim());
+  const park = censorText(document.getElementById("parkName").value.trim());
+  const message = censorText(document.getElementById("reportMessage").value.trim());
   const mapLink = document.getElementById("reportMapLink").value.trim();
   const image = document.getElementById("reportImage").value.trim();
   const category = document.getElementById("reportCategory").value;
@@ -575,3 +605,4 @@ function deleteAccount() {
     }
   }
 }
+
