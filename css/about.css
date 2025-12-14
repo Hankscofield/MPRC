@@ -1054,3 +1054,16 @@ button {
 .timeline-stat-number {
   animation: fadeUp 0.6s ease-out;
 }
+
+.team-avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.team-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
