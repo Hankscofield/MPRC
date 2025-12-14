@@ -330,6 +330,74 @@ html, body {
   animation-fill-mode: both;
 }
 
+/* ===== Mobile Hero Simplification ===== */
+@media (max-width: 768px) {
+
+  /* Hide plant illustration */
+  .plant-container {
+    display: none !important;
+  }
+
+  /* Hide park & community count card */
+  #statsCard {
+    display: none !important;
+  }
+
+  /* Make hero single-column on mobile */
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  /* Center text and buttons for mobile */
+  .hero-text {
+    text-align: center;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .hero-subtitle {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 768px) {
+
+  /* ---------- Smaller buttons ---------- */
+  .btn-primary,
+  .btn-secondary {
+    padding: 0.75rem 1.4rem;
+    font-size: 0.95rem;
+    border-radius: 16px;
+  }
+
+  .btn-primary svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  /* Reduce button group gap */
+  .hero-actions {
+    gap: 0.75rem;
+  }
+
+  /* ---------- Space before scroll indicator ---------- */
+  .scroll-indicator {
+    margin-top: 3rem;
+  }
+
+  /* ---------- Disable revealText animation ---------- */
+  .title-line::before {
+    animation: none !important;
+    clip-path: none !important;
+    content: none !important;
+  }
+}
+
+
 .content-wrapper {
   max-width: 1200px;
   margin: 0 auto;
