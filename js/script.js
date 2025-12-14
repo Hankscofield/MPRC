@@ -137,10 +137,10 @@ function initLeafAnimation() {
 const MAX_LEAVES = 30;
 
 function createLeaf(x, y) {
-  if (leafContainer.childElementCount >= MAX_LEAVES) return;
 
   const leafContainer = document.getElementById('leafContainer');
   if (!leafContainer) return;
+    if (leafContainer.childElementCount >= MAX_LEAVES) return;
 
   const leaf = document.createElement('div');
   leaf.className = 'leaf';
@@ -281,16 +281,16 @@ function initButtonEffects() {
   const learnBtn = document.getElementById('learnBtn');
   if (learnBtn) {
     learnBtn.addEventListener('click', () => {
-      window.location.href = '/etiquette.html';
+      window.location.href = 'pages/etiquette.html';
     });
   }
 
-  const getStartedBtn = document.getElementById('getStartedBtn');
-  if (getStartedBtn) {
-    getStartedBtn.addEventListener('click', () => {
-      alert('Sign up functionality coming soon!');
-    });
-  }
+  // const getStartedBtn = document.getElementById('getStartedBtn');
+  // if (getStartedBtn) {
+  //   getStartedBtn.addEventListener('click', () => {
+  //     alert('Sign up functionality coming soon!');
+  //   });
+  // }
 }
 
 function createRippleEffect(e, button) {
