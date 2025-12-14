@@ -21,7 +21,7 @@
       color: var(--color-deep-forest);
     }
 
-    /* ---------------- HEADER ---------------- */
+    /* ---------------- HEADER ----------------
 
     header {
       width: 100%;
@@ -53,7 +53,7 @@
 
     nav a:hover {
       color: var(--color-light-jade);
-    }
+    } */
 
     /* ---------------- ABOUT SECTION ---------------- */
 

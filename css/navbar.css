@@ -1,21 +1,16 @@
 /* REQUIRED VARIABLES (from original context to make the styles work) */
-    :root {
-      --color-glass-overlay: rgba(255, 255, 255, 0.7);
-      --color-glass-border: rgba(255, 255, 255, 0.5);
-      --blur-medium: blur(12px);
-      --color-deep-forest: #1a3c34;
-      --color-emerald: #076653;
-      --color-moss: #4a7c59;
-      --color-cream: #f9f7f0;
-      --spacing-xs: 0.5rem;
-      --spacing-sm: 1rem;
-      --spacing-md: 1.5rem;
-      --shadow-soft: 0 4px 20px rgba(0,0,0,0.05);
-      --transition-smooth: all 0.3s ease;
-      --radius-sm: 8px;
-      --font-display: sans-serif;
-    }
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
+@import url('ConstantVariables.css');
 
+a {
+  color: var(--color-emerald);
+  text-decoration: none;
+  transition: var(--transition-smooth);
+}
+
+a:hover {
+  color: var(--color-moss);
+}
 
 .nav-glass {
   position: fixed;
@@ -124,6 +119,40 @@
   box-shadow: var(--shadow-soft);
 }
 
+@media (max-width: 650px) {
+  .nav-content {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-sm);
+  }
+
+  .nav-button {
+    padding: var(--spacing-xs) var(--spacing-lg);
+  }
+}
+
+
+.mobile-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--spacing-xs);
+}
+
+.mobile-menu-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--color-deep-forest);
+  margin: 5px 0;
+  transition: var(--transition-smooth);
+}
 
 
 @media (max-width: 650px) {
@@ -140,5 +169,31 @@
 
   .nav-button {
     padding: var(--spacing-xs) var(--spacing-lg);
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: var(--color-glass-overlay);
+    backdrop-filter: var(--blur-medium);
+    flex-direction: column;
+    padding: var(--spacing-md);
+    gap: var(--spacing-sm);
+    transform: translateY(-150%);
+    opacity: 0;
+    transition: var(--transition-smooth);
+  }
+
+  .nav-links.active {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .mobile-menu-toggle {
+    display: block;
   }
 }
