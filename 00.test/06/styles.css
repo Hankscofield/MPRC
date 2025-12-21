@@ -1,0 +1,183 @@
+body{
+  margin:0;
+  background:#1b3a2b;
+}
+
+.container{
+  height:350px;
+  width:350px;
+  border-radius:50%;
+  position:absolute;
+  inset:0;
+  margin:auto;
+  overflow:hidden;
+  background:#2e5e3e;
+}
+
+/* Ground */
+.ground{
+  position:absolute;
+  bottom:0;
+  left:50%;
+  transform:translateX(-50%);
+  width:260px;
+  height:50px;
+  background:#4caf50;
+  border-radius:25px;
+}
+
+/* Trees */
+.tree{
+  position:absolute;
+  width:0;
+  height:0;
+}
+
+.tree-big{
+  border-bottom:120px solid #2f7d32;
+  border-left:30px solid transparent;
+  border-right:30px solid transparent;
+  bottom:50px;
+  left:40px;
+}
+
+.tree-small{
+  border-bottom:90px solid #5fa15a;
+  border-left:25px solid transparent;
+  border-right:25px solid transparent;
+  bottom:50px;
+  left:90px;
+}
+
+/* Bench */
+.bench{
+  position:absolute;
+  bottom:60px;
+  left:170px;
+}
+
+.seat{
+  width:80px;
+  height:10px;
+  background:#8b5a2b;
+  border-radius:5px;
+}
+
+.leg{
+  position:absolute;
+  width:6px;
+  height:25px;
+  background:#5c3a1e;
+  top:10px;
+}
+
+.leg-left{ left:10px; }
+.leg-right{ right:10px; }
+
+/* Plants */
+.plant{
+  position:absolute;
+  width:20px;
+  height:20px;
+  background:#66bb6a;
+  border-radius:50%;
+}
+
+.plant1{
+  bottom:55px;
+  left:140px;
+}
+
+.plant2{
+  bottom:55px;
+  left:230px;
+}
+
+/* Falling leaves */
+.leaves{
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 20% 10%, #ffb74d 2px, transparent 3px),
+    radial-gradient(circle at 60% 30%, #ff7043 2px, transparent 3px),
+    radial-gradient(circle at 80% 60%, #8d6e63 2px, transparent 3px);
+  animation: fall 6s linear infinite;
+}
+
+@keyframes fall{
+  from{ background-position: 0 0; }
+  to{ background-position: 0 350px; }
+}
+
+.backrest{
+  position:absolute;
+  width:80px;
+  height:8px;
+  background:#7a4a23;
+  bottom:20px;
+  border-radius:4px;
+}
+
+.slat{
+  position:absolute;
+  width:80px;
+  height:3px;
+  background:#9c6b3f;
+  left:0;
+}
+
+.s1{ bottom:5px; }
+.s2{ bottom:12px; }
+
+.container::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: radial-gradient(
+    circle at 50% 30%,
+    rgba(255,255,255,0.12),
+    transparent 60%
+  );
+}
+
+.tree{
+  animation: sway 6s ease-in-out infinite alternate;
+  transform-origin: bottom center;
+}
+
+@keyframes sway{
+  from{ transform: rotate(-1deg); }
+  to{ transform: rotate(1deg); }
+}
+
+/* Minimal fireflies */
+.fireflies{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 20% 60%, rgba(255,255,200,0.6) 1.5px, transparent 4px),
+    radial-gradient(circle at 50% 40%, rgba(255,255,200,0.5) 1.5px, transparent 4px),
+    radial-gradient(circle at 75% 55%, rgba(255,255,200,0.4) 1.5px, transparent 4px);
+  animation: fireflyFloat 12s ease-in-out infinite;
+}
+
+@keyframes fireflyFloat{
+  0%{
+    background-position:
+      20% 60%,
+      50% 40%,
+      75% 55%;
+    opacity:0.3;
+  }
+  50%{
+    opacity:0.8;
+  }
+  100%{
+    background-position:
+      22% 58%,
+      48% 42%,
+      77% 53%;
+    opacity:0.3;
+  }
+}

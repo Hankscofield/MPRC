@@ -1,0 +1,109 @@
+:root {
+  --bgClr: rgba(11, 15, 39, 0.83);
+  --txtClr: #fff;
+  --animSpd: 750ms;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* Container */
+.cont {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Slider */
+.slider {
+  position: relative;
+  height: 100%;
+  transform: translate3d(0,0,0);
+  will-change: transform;
+  cursor: grab;
+}
+
+.slider.animation {
+  transition: transform var(--animSpd) ease-in-out;
+}
+
+.slider.animation .slide__darkbg,
+.slider.animation .slide__text,
+.slider.animation .slide__letter {
+  transition: transform var(--animSpd) ease-in-out;
+}
+
+/* Slides */
+.slide {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Position slides */
+.slide--1 { left: 0%; }
+.slide--2 { left: 100%; }
+.slide--3 { left: 200%; }
+.slide--4 { left: 300%; }
+.slide--5 { left: 400%; }
+
+/* Dark background */
+.slide__darkbg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.slide__darkbg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--bgClr);
+}
+
+/* Text wrapper */
+.slide__text-wrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+}
+
+/* Big letter */
+.slide__letter {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  font-size: 50vw;
+  font-weight: 800;
+  display: flex;
+}
+
+/* Scene wrapper controls layout */
+/* Layout-safe override */
+.park-scene{
+  position:relative;
+  width:100%;
+  min-height:420px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+/* Override absolute ONLY inside page flow */
+.park-container{
+  position:relative !important;
+  inset:auto !important;
+  margin:0 !important;
+}
