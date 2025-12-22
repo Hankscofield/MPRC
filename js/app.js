@@ -107,13 +107,9 @@ const sampleReports = [
 ================================ */
 
 const BAD_WORDS = [
-  "fuck",
-  "shit",
-  "bitch",
-  "asshole",
   "bastard",
   "damn",
-  "crap"
+  "dumb"
   // add more as needed
 ];
 
@@ -163,6 +159,8 @@ document.addEventListener("DOMContentLoaded", () => {
   setupEventListeners();
   renderReports();
   renderSettings();
+
+  document.getElementById("categorySelect").addEventListener("change", renderReports);
 });
 
 function setupEventListeners() {
@@ -244,6 +242,7 @@ function closeSidebar() {
 function renderReports() {
   const searchTerm = document.getElementById("searchInput").value.toLowerCase();
   const filterStatus = document.getElementById("filterSelect").value;
+  const filterCategory = document.getElementById("categorySelect").value;
   const sortOrder = document.getElementById("sortSelect").value;
 
   allReports = getAllReports();
@@ -253,8 +252,11 @@ function renderReports() {
       report.title.toLowerCase().includes(searchTerm) ||
       report.park.toLowerCase().includes(searchTerm) ||
       report.message.toLowerCase().includes(searchTerm);
-    const matchesFilter = !filterStatus || report.status === filterStatus;
-    return matchesSearch && matchesFilter;
+
+    const matchesStatus = !filterStatus || report.status === filterStatus;
+    const matchesCategory = !filterCategory || report.category === filterCategory;
+
+    return matchesSearch && matchesStatus && matchesCategory;
   });
 
   if (sortOrder === "newest") {
